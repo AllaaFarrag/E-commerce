@@ -18,20 +18,42 @@ import { WishListComponent } from './features/components/wish-list/wish-list.com
 import { SubCategoriesComponent } from './features/components/sub-categories/sub-categories.component';
 
 export const routes: Routes = [
-    {path:"" ,redirectTo:"/login",pathMatch:"full"},
-    {path:"home",component:HomeComponent,title:"Home" , canActivate:[routingGuard]},
-    {path:"product",component:ProductsComponent,title:"Product",canActivate:[routingGuard]},
-    {path:"categories",component:CategoriesComponent,title:"Categories",canActivate:[routingGuard]},
-    {path:"cart",component:CartComponent,title:"Cart",canActivate:[routingGuard]},
-    {path:"brands",component:BrandsComponent,title:"Brands",canActivate:[routingGuard]},
-    {path:"wishList",component:WishListComponent,title:"WishList",canActivate:[routingGuard]},
-    {path:"checkout/:cartId",component:CheckoutComponent,title:"Checkout",canActivate:[routingGuard] ,data: { renderMode: 'dynamic' }},
-    {path:"single/:proId",component:SingleProductComponent,title:"Single",canActivate:[routingGuard],data: { renderMode: 'dynamic' }},
-    {path:"subCategory/:catId/:catName",component:SubCategoriesComponent,title:"SubCategory",canActivate:[routingGuard],data: { renderMode: 'dynamic' }},
-    {path:"login",component:LoginComponent,title:"Login",canActivate:[authGuard]},
-    {path:"register",component:RegisterComponent,title:"Register", canActivate:[authGuard]},
-    {path:"forgetPassword",component:ForgetPasswordComponent,title:"Forget Password", canActivate:[authGuard]},
-    {path:"verfyCode",component:VerfiyCodeComponent,title:"Verfy Code", canActivate:[authGuard]},
-    {path:"resetPassword",component:ResetPasswordComponent,title:"Reset Password", canActivate:[authGuard]},
-    {path:"**",component:NotfoundComponent,title:"404 Not Found"},
+    { path: "", redirectTo: "/login", pathMatch: "full" },
+    { path: "home", component: HomeComponent, title: "Home", canActivate: [routingGuard] },
+    { path: "product", component: ProductsComponent, title: "Product", canActivate: [routingGuard] },
+    { path: "categories", component: CategoriesComponent, title: "Categories", canActivate: [routingGuard] },
+    { path: "cart", component: CartComponent, title: "Cart", canActivate: [routingGuard] },
+    { path: "brands", component: BrandsComponent, title: "Brands", canActivate: [routingGuard] },
+    { path: "wishList", component: WishListComponent, title: "WishList", canActivate: [routingGuard] },
+
+    // Fix: Explicitly disable prerendering for routes with dynamic parameters
+    { path: "checkout/:cartId", component: CheckoutComponent, title: "Checkout", canActivate: [routingGuard], data: { renderMode: 'default' } },
+    { path: "single/:proId", component: SingleProductComponent, title: "Single", canActivate: [routingGuard], data: { renderMode: 'default' } },
+    { path: "subCategory/:catId/:catName", component: SubCategoriesComponent, title: "SubCategory", canActivate: [routingGuard], data: { renderMode: 'default' } },
+
+    { path: "login", component: LoginComponent, title: "Login", canActivate: [authGuard] },
+    { path: "register", component: RegisterComponent, title: "Register", canActivate: [authGuard] },
+    { path: "forgetPassword", component: ForgetPasswordComponent, title: "Forget Password", canActivate: [authGuard] },
+    { path: "verfyCode", component: VerfiyCodeComponent, title: "Verify Code", canActivate: [authGuard] },
+    { path: "resetPassword", component: ResetPasswordComponent, title: "Reset Password", canActivate: [authGuard] },
+    { path: "**", component: NotfoundComponent, title: "404 Not Found" },
 ];
+
+// export const routes: Routes = [
+//     {path:"" ,redirectTo:"/login",pathMatch:"full"},
+//     {path:"home",component:HomeComponent,title:"Home" , canActivate:[routingGuard]},
+//     {path:"product",component:ProductsComponent,title:"Product",canActivate:[routingGuard]},
+//     {path:"categories",component:CategoriesComponent,title:"Categories",canActivate:[routingGuard]},
+//     {path:"cart",component:CartComponent,title:"Cart",canActivate:[routingGuard]},
+//     {path:"brands",component:BrandsComponent,title:"Brands",canActivate:[routingGuard]},
+//     {path:"wishList",component:WishListComponent,title:"WishList",canActivate:[routingGuard]},
+//     {path:"checkout/:cartId",component:CheckoutComponent,title:"Checkout",canActivate:[routingGuard] ,data: { renderMode: 'dynamic' }},
+//     {path:"single/:proId",component:SingleProductComponent,title:"Single",canActivate:[routingGuard],data: { renderMode: 'dynamic' }},
+//     {path:"subCategory/:catId/:catName",component:SubCategoriesComponent,title:"SubCategory",canActivate:[routingGuard],data: { renderMode: 'dynamic' }},
+//     {path:"login",component:LoginComponent,title:"Login",canActivate:[authGuard]},
+//     {path:"register",component:RegisterComponent,title:"Register", canActivate:[authGuard]},
+//     {path:"forgetPassword",component:ForgetPasswordComponent,title:"Forget Password", canActivate:[authGuard]},
+//     {path:"verfyCode",component:VerfiyCodeComponent,title:"Verfy Code", canActivate:[authGuard]},
+//     {path:"resetPassword",component:ResetPasswordComponent,title:"Reset Password", canActivate:[authGuard]},
+//     {path:"**",component:NotfoundComponent,title:"404 Not Found"},
+// ];
